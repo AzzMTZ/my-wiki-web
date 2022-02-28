@@ -1,2 +1,2 @@
-import NavbarContainer from "./navbar.container";
-export default NavbarContainer;
+export { default as Navbar } from "./navbar.container";
+export * from "./types";

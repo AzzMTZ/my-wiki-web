@@ -1,4 +1,3 @@
-import React from "react";
 import NavbarView from "./navbar.view";
 import { LinkData } from "./types";
 
@@ -8,7 +7,7 @@ const links: LinkData[] = [
 	{ path: "/topics-list", name: "Browse Topics" },
 ];
 
-const NavbarContainer: React.FC = () => {
+const NavbarContainer = () => {
 	return <NavbarView links={links} />;
 };
 
