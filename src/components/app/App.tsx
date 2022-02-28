@@ -7,9 +7,7 @@ import { TopicPage } from "../topics.page";
 
 const App = () => (
 	<div className="App">
-		<div className="app-header">
-			<Navbar />
-		</div>
+		<Navbar />
 		<div className="app-body">
 			<Routes>
 				<Route path="/" element={<Home />} />

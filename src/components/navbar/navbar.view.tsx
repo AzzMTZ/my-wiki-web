@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
-import { LinkData } from "./types";
+import { LinkData } from "./navbar.consts";
 
 const NavbarView: React.FC<{ links: LinkData[] }> = ({ links }) => (
 	<nav>

@@ -3,12 +3,11 @@
 		transform: translate(-100%);
 	}
 	to {
-		transform: translate(100%) rotateY(360deg);
+		transform: translate(100%) rotateY(720deg);
 	}
 }
 
-div {
-    background-color: hsl(213, 100%, 95%);
+.home-container {
 	text-align: center;
 
 	img {

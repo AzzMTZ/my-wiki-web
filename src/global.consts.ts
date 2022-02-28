@@ -1,0 +1,1 @@
+export const EXAMPLE_WIKI_ID = "-LBFYWTG6kpJNE2S-F75";

@@ -1,5 +1,5 @@
 import NavbarView from "./navbar.view";
-import { LinkData } from "./types";
+import { LinkData } from "./navbar.consts";
 
 const links: LinkData[] = [
 	{ path: "/", name: "Home" },
