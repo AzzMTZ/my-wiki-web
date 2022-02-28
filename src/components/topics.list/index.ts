@@ -1,1 +1,1 @@
-export {default as TopicsList} from "./topics.list.container";
+export { default as TopicsList } from "./topics.list.container";
