@@ -1,0 +1,25 @@
+nav {
+	background-color: hsl(213, 100%, 50%);
+	display: flex;
+	box-shadow: 0 0 0.2em 0 black;
+
+	a {
+		font-size: 1.2em;
+		padding: 10px;
+		text-decoration: none;
+        font-weight: bold;
+		color: white;
+	}
+
+	a:hover {
+		background-color: hsl(213, 100%, 40%);
+		color: white;
+		box-sizing: border-box;
+		border-right: 1px solid black;
+		border-left: 1px solid black;
+	}
+
+	a:active {
+        background-color: hsl(213, 100%, 30%);
+	}
+}
