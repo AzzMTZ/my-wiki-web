@@ -10,8 +10,6 @@ const TopicCardContainer: React.FC<{ topicData: Topic }> = ({ topicData }) => {
 
 	useEffect(() => {
 		myWikiService.getImage(EXAMPLE_WIKI_ID, topicData.name).then(setTopicImage);
-        
-		
 	}, [topicData]);
 
 	return <TopicCardView topicData={topicData} topicImage={topicImage} />;

@@ -1,1 +1,1 @@
-export const EXAMPLE_WIKI_ID = "-LBFYWTG6kpJNE2S-F75";
+export const EXAMPLE_WIKI_ID = "-LJwrU6NUsp5VYPpZR1b";
