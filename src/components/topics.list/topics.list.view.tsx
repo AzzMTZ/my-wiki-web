@@ -1,18 +1,13 @@
 import React from "react";
 import { Topic } from "../../schemas/topics";
+import { TopicCard } from "../topic.card";
 import "./topics.list.scss";
-import noImage from "../../assets/images/no_image.jpg";
 
 const TopicsListView: React.FC<{ topics: { [key: string]: Topic } }> = ({ topics }) => (
 	<ul>
-		{Object.keys(topics).map(id => (
-			<li>
-				<img src={noImage} alt="empty"></img>
-				<div>
-					<h3>{topics[id].name}</h3>
-					<p>{topics[id].birth}</p>
-					<p>{topics[id].type}</p>
-				</div>
+		{Object.keys(topics).map(topicId => (
+			<li key={topicId}>
+				<TopicCard topicData={topics[topicId]}></TopicCard>
 			</li>
 		))}
 	</ul>

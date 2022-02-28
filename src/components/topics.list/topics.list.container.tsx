@@ -8,7 +8,15 @@ const TopicsListContainer = () => {
 	const [topics, setTopics] = useState<{ [key: string]: Topic }>({});
 
 	useEffect(() => {
-		myWikiService.getTopicsOfWiki(EXAMPLE_WIKI_ID).then(topics => setTopics(topics));
+		const cancelTokenSource = myWikiService.getCancelTokenSource();
+		myWikiService
+			.getTopicsOfWiki(EXAMPLE_WIKI_ID, cancelTokenSource.token)
+			.then(topics => setTopics(topics))
+			.catch(console.error);
+
+		return () => {
+			cancelTokenSource.cancel();
+		};
 	});
 
 	return <TopicsListView topics={topics} />;
