@@ -25,4 +25,19 @@ nav {
 	a:active {
 		background-color: hsl(213, 100%, 30%);
 	}
+
+	a.wiki {
+		margin-left: auto;
+
+		span {
+			color: violet;
+			font-style: italic;
+		}
+	}
+
+	a.wiki:hover {
+		span {
+			text-decoration: underline;
+		}
+	}
 }
