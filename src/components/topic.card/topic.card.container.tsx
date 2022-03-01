@@ -11,10 +11,20 @@ const TopicCardContainer: React.FC<{ topicData: Topic }> = ({ topicData }) => {
 	const { wiki } = useContext(CurrentWikiContext);
 
 	useEffect(() => {
+		let isCancelled = false;
+
 		myWikiService
 			.getImage(wiki.value, topicData.name)
-			.then(setTopicImage)
-			.catch(() => setTopicImage(noImage));
+			.then(image => {
+				if (!isCancelled) setTopicImage(image);
+			})
+			.catch(() => {
+				if (!isCancelled) setTopicImage(noImage);
+			});
+
+		return () => {
+			isCancelled = true;
+		};
 	}, [topicData, wiki]);
 
 	return <TopicCardView topicData={topicData} topicImage={topicImage} />;
