@@ -1,5 +1,7 @@
+@use "../../assets/global_variables";
+
 nav {
-	background-color: hsl(213, 100%, 50%);
+	background-color: global_variables.$color-primary;
 	display: flex;
 	position: sticky;
 	top: 0;
@@ -16,14 +18,14 @@ nav {
 	}
 
 	a:hover {
-		background-color: hsl(213, 100%, 40%);
+		background-color: global_variables.$color-primary-hover;
 		color: white;
 		border-right: 1px solid black;
 		border-left: 1px solid black;
 	}
 
 	a:active {
-		background-color: hsl(213, 100%, 30%);
+		background-color: global_variables.$color-primary-active;
 	}
 
 	a.wiki {

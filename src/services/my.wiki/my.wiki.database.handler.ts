@@ -18,13 +18,32 @@ export const getWikis = async (cancelToken: CancelToken): Promise<{ [key: string
 	}
 };
 
-export const getTopicsOfWiki = async (wikiId: string, cancelToken: CancelToken): Promise<{ [key: string]: Topic }> => {
+export const getAllTopicsOfWiki = async (
+	wikiId: string,
+	cancelToken: CancelToken,
+): Promise<{ [key: string]: Topic }> => {
 	try {
 		const response = await axios.get(MY_WIKI_BASE_URL + wikiId + ".json", { cancelToken });
 		return response.data;
 	} catch (error) {
 		if (axios.isCancel(error)) {
 			return {};
+		}
+		throw error;
+	}
+};
+
+export const getTopicOfWiki = async (
+	wikiId: string,
+	topicId: string,
+	cancelToken: CancelToken,
+): Promise<Topic | null> => {
+	try {
+		const response = await axios.get(`${MY_WIKI_BASE_URL + wikiId}/${topicId}.json`, { cancelToken });
+		return response.data;
+	} catch (error) {
+		if (axios.isCancel(error)) {
+			return null;
 		}
 		throw error;
 	}

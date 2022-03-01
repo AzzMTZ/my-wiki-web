@@ -8,8 +8,8 @@ const TopicCardView: React.FC<{ topicData: Topic; topicImage: string }> = ({ top
 		</div>
 		<div className="topic-data">
 			<h3>{topicData.name}</h3>
-			<p>{topicData.birth}</p>
-			<p>{topicData.type}</p>
+			{topicData.birth && <p>{topicData.birth}</p>}
+			{topicData.type && <p>{topicData.type}</p>}
 		</div>
 	</div>
 );

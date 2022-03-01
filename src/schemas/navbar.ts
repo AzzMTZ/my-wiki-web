@@ -1,1 +1,1 @@
-export type NavLink = { path: string; name: string; element: JSX.Element };
+export type NavLink = { path: string; name?: string; element: JSX.Element };

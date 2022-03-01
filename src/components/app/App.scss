@@ -1,6 +1,8 @@
+@use "../../assets/global_variables";
+
 .App {
 	text-align: center;
-	background-color: hsl(213, 100%, 95%);
+	background-color: global_variables.$color-secondary;
 	min-height: 100vh;
 	height: 100%;
 }
