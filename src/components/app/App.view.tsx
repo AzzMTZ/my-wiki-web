@@ -5,11 +5,11 @@ import { navLinks } from "./App.consts";
 
 const AppView = () => (
 	<div className="App">
-		<Navbar links={navLinks} />
+		<Navbar navLinks={navLinks} />
 		<div className="app-body">
 			<Routes>
 				{navLinks.map(navLink => (
-					<Route path={navLink.path} element={navLink.element} />
+					<Route key={navLink.path} path={navLink.path} element={navLink.element} />
 				))}
 			</Routes>
 		</div>
