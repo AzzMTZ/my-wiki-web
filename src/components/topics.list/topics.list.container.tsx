@@ -7,6 +7,7 @@ import TopicsListView from "./topics.list.view";
 const TopicsListContainer = () => {
 	const [topics, setTopics] = useState<{ [key: string]: Topic }>({});
 	const [retrieved, setRetrieved] = useState(false);
+	const [selectedTopic, selectTopic] = useState<Topic | null>(null);
 
 	useEffect(() => {
 		const cancelTokenSource = myWikiService.getCancelTokenSource();
@@ -21,7 +22,7 @@ const TopicsListContainer = () => {
 		};
 	}, []);
 
-	return <TopicsListView topics={topics} retrieved={retrieved} />;
+	return <TopicsListView topics={topics} retrieved={retrieved} selectTopic={selectTopic} selectedTopic={selectedTopic}/>;
 };
 
 export default TopicsListContainer;
