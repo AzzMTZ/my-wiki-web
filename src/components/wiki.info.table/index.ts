@@ -1,1 +1,1 @@
-export { default as WikiInfoTable } from "./wiki.infotable..view";
+export { default as WikiInfoTable } from "./wiki.info.table.container";

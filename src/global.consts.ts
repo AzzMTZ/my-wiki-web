@@ -1,1 +1,2 @@
-export const EXAMPLE_WIKI = { name: "Merkur", id: "-LJwrU6NUsp5VYPpZR1b" };
+export const DEFAULT_WIKI = { value: "none", label: "None Selected" };
+export const EMPTY_FUNC = () => {};

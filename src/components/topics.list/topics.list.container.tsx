@@ -8,7 +8,7 @@ const TopicsListContainer = () => {
 	const [topics, setTopics] = useState<{ [key: string]: Topic }>({});
 	const [retrieved, setRetrieved] = useState(false);
 	const [selectedTopic, selectTopic] = useState<Topic | null>(null);
-	const [wiki] = useContext(CurrentWikiContext);
+	const { wiki } = useContext(CurrentWikiContext);
 
 	useEffect(() => {
 		const cancelTokenSource = myWikiService.getCancelTokenSource();

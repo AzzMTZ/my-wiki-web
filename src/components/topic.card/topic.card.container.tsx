@@ -8,7 +8,7 @@ import { CurrentWikiContext } from "../../contexts/currentWiki";
 
 const TopicCardContainer: React.FC<{ topicData: Topic }> = ({ topicData }) => {
 	const [topicImage, setTopicImage] = useState(loadingImage);
-	const [wiki] = useContext(CurrentWikiContext);
+	const { wiki } = useContext(CurrentWikiContext);
 
 	useEffect(() => {
 		myWikiService

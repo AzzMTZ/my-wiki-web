@@ -1,11 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, Dispatch, SetStateAction, useState } from "react";
+import { DEFAULT_WIKI, EMPTY_FUNC } from "../global.consts";
+import { Wiki } from "../schemas/wikis";
 
-export const CurrentWikiContext = createContext<any>(undefined);
+type CurrentWikiContextProps = {
+	wiki: Wiki;
+	setWiki: Dispatch<SetStateAction<Wiki>>;
+};
 
-const { Provider } = CurrentWikiContext;
+export const CurrentWikiContext = createContext<CurrentWikiContextProps>({ wiki: DEFAULT_WIKI, setWiki: EMPTY_FUNC });
 
 export const CurrentWikiProvider: React.FC = ({ children }) => {
-	const [wiki, setWiki] = useState<{ value: string; label: string }>({ value: "none", label: "None Selected" });
+	const [wiki, setWiki] = useState<Wiki>(DEFAULT_WIKI);
 
-	return <Provider value={[wiki, setWiki]}>{children}</Provider>;
+	return <CurrentWikiContext.Provider value={{ wiki, setWiki }}>{children}</CurrentWikiContext.Provider>;
 };

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Select from "react-select";
-import { Topic } from "../../schemas/topics";
+import { Wiki } from "../../schemas/wikis";
 import { WikiInfoTable } from "../wiki.info.table";
 import "./wiki.select.scss";
 
 type WikiSelectProps = {
-	wikis: { value: string; label: string }[];
-	wiki: { value: string; label: string };
-	setWiki: () => any;
-	homeTopic: Topic | null;
+	wikis: Wiki[];
+	wiki: Wiki;
+	setWiki: Dispatch<SetStateAction<Wiki>>;
 };
 
-const WikiSelectView: React.FC<WikiSelectProps> = ({ wikis, wiki, setWiki, homeTopic }) => (
+const WikiSelectView: React.FC<WikiSelectProps> = ({ wikis, wiki, setWiki }) => (
 	<div className="wiki-container">
 		<div>
 			{wiki.value === "none" ? (
@@ -27,13 +26,13 @@ const WikiSelectView: React.FC<WikiSelectProps> = ({ wikis, wiki, setWiki, homeT
 					id="wiki-select"
 					className="select"
 					options={wikis}
-					onChange={setWiki}
+					onChange={wiki => setWiki(wiki as Wiki)}
 					value={wiki.value === "none" ? null : wiki}
 				/>
 			</div>
 		</div>
-        
-		{homeTopic && <WikiInfoTable homeTopic={homeTopic} />}
+
+		<WikiInfoTable wiki={wiki} />
 	</div>
 );
 
