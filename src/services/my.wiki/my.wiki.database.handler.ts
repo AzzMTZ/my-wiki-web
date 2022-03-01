@@ -48,3 +48,15 @@ export const getTopicOfWiki = async (
 		throw error;
 	}
 };
+
+export const getWikiSize = async (wikiId: string, cancelToken: CancelToken): Promise<number> => {
+	try {
+		const response = await axios.get(MY_WIKI_BASE_URL + wikiId + ".json?shallow=true", { cancelToken });
+		return Object.values(response.data).length;
+	} catch (error) {
+		if (axios.isCancel(error)) {
+			return 0;
+		}
+		throw error;
+	}
+};

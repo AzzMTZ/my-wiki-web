@@ -32,7 +32,7 @@ const WikiSelectView: React.FC<WikiSelectProps> = ({ wikis, wiki, setWiki }) => 
 			</div>
 		</div>
 
-		<WikiInfoTable wiki={wiki} />
+		{wiki.value !== "none" && <WikiInfoTable wiki={wiki} />}
 	</div>
 );
 
