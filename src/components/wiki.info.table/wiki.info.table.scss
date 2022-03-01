@@ -1,0 +1,52 @@
+@use "../../assets/global_variables";
+
+$corner-radius: 3px;
+
+.table-container {
+	table {
+		margin: 3% auto;
+		border-radius: $corner-radius * 2;
+		box-shadow: 5px 5px 10px 0 gray;
+
+		th,
+		td {
+			font-size: 1.2em;
+			padding: 10px;
+		}
+
+		thead {
+			tr:first-child {
+				th:last-child {
+					border-radius: 0 $corner-radius 0 0;
+				}
+
+				th:first-child {
+					border-radius: $corner-radius 0 0 0;
+				}
+			}
+
+			tr {
+				background-color: global_variables.$color-primary;
+			}
+
+			color: white;
+		}
+		tbody {
+			tr:last-child {
+				td:last-child {
+					border-radius: 0 0 $corner-radius 0;
+				}
+
+				td:first-child {
+					border-radius: 0 0 0 $corner-radius;
+				}
+			}
+
+			tr {
+				background-color: global_variables.$color-moderate;
+			}
+		}
+
+		background-color: black;
+	}
+}

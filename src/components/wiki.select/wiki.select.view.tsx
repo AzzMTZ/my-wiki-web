@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import { Topic } from "../../schemas/topics";
+import { WikiInfoTable } from "../wiki.info.table";
 import "./wiki.select.scss";
 
 type WikiSelectProps = {
@@ -12,23 +13,27 @@ type WikiSelectProps = {
 
 const WikiSelectView: React.FC<WikiSelectProps> = ({ wikis, wiki, setWiki, homeTopic }) => (
 	<div className="wiki-container">
-		{wiki.value === "none" ? (
-			<h1>You haven't selected a wiki, please select one:</h1>
-		) : (
-			<h1>
-				You are currently in the wiki: <span>{wiki.label}</span>
-			</h1>
-		)}
-
-		<Select className="select" options={wikis} onChange={setWiki} value={wiki.value === "none" ? null : wiki} />
-
-		{homeTopic && (
-			<div>
-				<h1>Wiki Additional Info:</h1>
-				<p>Security: {homeTopic.editable ? "Public" : "Protected"}</p>
-				<p>Password: {homeTopic.password}</p>
+		<div>
+			{wiki.value === "none" ? (
+				<h1>You haven't selected a wiki, please select one:</h1>
+			) : (
+				<h1>
+					You are currently in the wiki: <span>{wiki.label}</span>
+				</h1>
+			)}
+			<div className="select-container">
+				<p>Choose a wiki:</p>
+				<Select
+					id="wiki-select"
+					className="select"
+					options={wikis}
+					onChange={setWiki}
+					value={wiki.value === "none" ? null : wiki}
+				/>
 			</div>
-		)}
+		</div>
+        
+		{homeTopic && <WikiInfoTable homeTopic={homeTopic} />}
 	</div>
 );
 
