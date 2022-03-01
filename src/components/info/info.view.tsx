@@ -1,7 +1,7 @@
 import "./info.scss";
 
 const InfoView = () => (
-	<article>
+	<div className="info">
 		<h1>Info & About</h1>
 
 		<h2>General Info:</h2>
@@ -131,7 +131,7 @@ const InfoView = () => (
 			<br />
 			Azz&Zol
 		</h3>
-	</article>
+	</div>
 );
 
 export default InfoView;
