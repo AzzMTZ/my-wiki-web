@@ -1,1 +1,1 @@
-export const EXAMPLE_WIKI = { name: "Recopa Del Mundo Japón 2015", id: "-LJwrU6NUsp5VYPpZR1b" };
+export const EXAMPLE_WIKI = { name: "Merkur", id: "-LJwrU6NUsp5VYPpZR1b" };
