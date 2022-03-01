@@ -5,8 +5,17 @@ import { TopicsList } from "../topics.list";
 import { WikiSelect } from "../wiki.select";
 
 export const navLinks: NavLink[] = [
-	{ path: "/", name: "Home", element: <Home /> },
-	{ path: "/topics-list", name: "Topics", element: <TopicsList /> },
-	{ path: "/info", name: "Info", element: <Info /> },
-	{ path: "/wiki", element: <WikiSelect /> },
+	{ path: "/", getContent: () => <div>Home</div>, element: <Home /> },
+	{ path: "/topics-list", getContent: () => <div>Topics</div>, element: <TopicsList /> },
+	{ path: "/info", getContent: () => <div>Info</div>, element: <Info /> },
+	{
+		path: "/wiki",
+		getContent: ({ wikiName }) => (
+			<div>
+				Current Wiki: <span>{wikiName}</span>
+			</div>
+		),
+		element: <WikiSelect />,
+		class: "wiki",
+	},
 ];

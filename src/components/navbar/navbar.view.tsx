@@ -2,19 +2,25 @@ import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { NavLink } from "../../schemas/navbar";
 
-const NavbarView: React.FC<{ navLinks: NavLink[]; wikiName: string }> = ({ navLinks, wikiName }) => (
+type NavBarProps = {
+	navLinks: NavLink[];
+	wikiName: string;
+	selectedLink: string;
+	onLinkSelect: (path: string) => void;
+};
+
+const NavbarView: React.FC<NavBarProps> = ({ navLinks, wikiName, selectedLink, onLinkSelect }) => (
 	<nav>
-		{navLinks.map(navLink =>
-			navLink.path === "/wiki" ? (
-				<Link key="/wiki" to="/wiki" className="wiki">
-					Current Wiki: <span>{wikiName}</span>
-				</Link>
-			) : (
-				<Link key={navLink.path} to={navLink.path}>
-					{navLink.name}
-				</Link>
-			),
-		)}
+		{navLinks.map(navLink => (
+			<Link
+				onClick={() => onLinkSelect(navLink.path)}
+				key={navLink.path}
+				to={navLink.path}
+				className={`${navLink.class} ${selectedLink === navLink.path ? "selected" : undefined}`}
+			>
+				{navLink.getContent({ wikiName })}
+			</Link>
+		))}
 	</nav>
 );
 
