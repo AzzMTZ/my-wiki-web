@@ -1,0 +1,12 @@
+@use "../../assets/global_variables";
+
+.App {
+	text-align: center;
+	background-color: global_variables.$color-secondary;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.app-body {
+	padding: 1em;
+}

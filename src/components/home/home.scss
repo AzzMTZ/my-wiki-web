@@ -1,0 +1,18 @@
+@keyframes rotation {
+	from {
+		transform: translate(-100%);
+	}
+	to {
+		transform: translate(100%) rotateY(720deg);
+	}
+}
+
+.home-container {
+	text-align: center;
+
+	img {
+		padding: 5%;
+		width: 10%;
+		animation: rotation 2s infinite alternate linear;
+	}
+}
