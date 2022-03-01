@@ -6,20 +6,22 @@ import TopicsListView from "./topics.list.view";
 
 const TopicsListContainer = () => {
 	const [topics, setTopics] = useState<{ [key: string]: Topic }>({});
+	const [retrieved, setRetrieved] = useState(false);
 
 	useEffect(() => {
 		const cancelTokenSource = myWikiService.getCancelTokenSource();
 		myWikiService
 			.getTopicsOfWiki(EXAMPLE_WIKI_ID, cancelTokenSource.token)
 			.then(topics => setTopics(topics))
-			.catch(console.error);
+			.catch(() => setTopics({}))
+			.finally(() => setRetrieved(true));
 
 		return () => {
 			cancelTokenSource.cancel();
 		};
-	});
+	}, []);
 
-	return <TopicsListView topics={topics} />;
+	return <TopicsListView topics={topics} retrieved={retrieved} />;
 };
 
 export default TopicsListContainer;
