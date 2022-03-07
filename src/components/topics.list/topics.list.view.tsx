@@ -25,7 +25,7 @@ const TopicsListView: React.FC<TopicsListProps> = ({ topics, retrieved, selectTo
 			retrieved ? (
 				<h1>Oops, either there are no topics or there was a problem retrieving them...</h1>
 			) : (
-				<img src={loadingImage} alt="loading" />
+				<img className='loading-topics' src={loadingImage} alt="loading" />
 			)
 		) : (
 			<ul>
