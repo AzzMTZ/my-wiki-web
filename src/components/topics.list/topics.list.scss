@@ -16,4 +16,9 @@
 			height: 350px;
 		}
 	}
+
+	.loading-topics {
+		width: min(100vw, 100vh);
+		object-fit: contain;
+	}
 }
